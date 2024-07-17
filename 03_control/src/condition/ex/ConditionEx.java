@@ -250,22 +250,45 @@ public class ConditionEx {
 		double soc = sc.nextDouble();	// 사 , 입력이 종료된 것으로 인식
 		double sci = sc.nextDouble();	// 과 
 		
+		// 40 점 미만인 과목 검사
+		boolean flag = false;
 		String str ="";
-		double averageScore = (kor + eng + mat + soc + sci) / 5;
 		
-		if (kor < 40) str += "국어 ";
-		if (eng < 40) str += "영어 ";
-		if (mat < 40) str += "수학 ";
-		if (soc < 40) str += "사회 ";
-		if (sci < 40) str += "과학 ";
+		if (kor < 40) { flag = true; str += "국어 ";}
+		if (eng < 40) { flag = true; str += "영어 ";}
+		if (mat < 40) { flag = true; str += "수학 ";}
+		if (soc < 40) { flag = true; str += "사회 ";}
+		if (sci < 40) { flag = true; str += "과학 ";}
 		
-		if (kor < 40 || eng < 40 || mat < 40 || soc < 40 || sci < 40) {
+		// str == ""? 작동은 하지만 보편적으로 생각하는 원리는 아님
+		//            메모리 구조에 대한  깊은 이해 필요
+		if (flag) {	
 			System.out.printf("FAIL [40 점 미만 과목 : %s]", str);
-		} else if (averageScore < 60) {
-			System.out.printf("FAIL [점수 : %.1f (평균 미달)]", averageScore);
-		} else {
-			System.out.printf("PASS [점수 : %.1f ]", averageScore);
+			return;
 		}
+		
+//		if (kor < 40) str += "국어 ";
+//		if (eng < 40) str += "영어 ";
+//		if (mat < 40) str += "수학 ";
+//		if (soc < 40) str += "사회 ";
+//		if (sci < 40) str += "과학 ";
+//		
+//		if (kor < 40 || eng < 40 || mat < 40 || soc < 40 || sci < 40) {
+//			System.out.printf("FAIL [40 점 미만 과목 : %s]", str);
+//			return;
+//		}
+		
+		double averageScore = (kor + eng + mat + soc + sci) / 5;
+		// 위쪽 변수 선언 자료형을 int로 할 경우 avg 가 소수점을 가지기 위해선
+		// 5 를 5.0으로 쓰거나 (duble) 로 강제 형변환
+		
+		if (averageScore < 60.0) {
+			System.out.printf("FAIL [점수 : %.1f (평균 미달)]", averageScore);
+			return; // Early return (중간에 메서드를 종료)
+		} 
+			
+		// 위쪽 if를 빠져나온 경우(else를 사용하지 않는 경우)
+		System.out.printf("PASS [점수 : %.1f ]", averageScore);
 		
 	}
 	
