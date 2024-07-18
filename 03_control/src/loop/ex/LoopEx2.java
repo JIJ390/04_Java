@@ -145,7 +145,7 @@ public class LoopEx2 {
 		
 	}
 	
-	/**	[do ~ while]
+	/** [do ~ while]
 	 * - 최소 1회 이상 반복하는 반복문
 	 */
 	public void method7() {
