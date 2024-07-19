@@ -439,8 +439,9 @@ public class ArrayPractice {
 			
 			System.out.print(arr2[i] + " ");
 		}
-		
 		System.out.println("\n문자 개수 : " + count);
+		System.out.println();
+		System.out.println(Arrays.toString(arr2));
 		
 	}
 	
