@@ -68,15 +68,6 @@ public class PracticeEx {
 	}
 	
 	
-	/**
-	 * String 자료형 메모리 할당
-	 */
-	public void method5() {
-		String str  = "abc";
-		String str2 = "abc";
-		
-		
-	}
 	
 	public static void main(String[] args) {
 		args = new String[2];

@@ -15,8 +15,6 @@ public class PracticeRun {
 		
 		
 		
-		
-		
-//		PracticeEx.main(arr);
+		PracticeEx.main(arr);
 	}
 }
