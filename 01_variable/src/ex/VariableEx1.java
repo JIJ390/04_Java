@@ -51,7 +51,7 @@ public class VariableEx1 {
 		System.out.println(num1);
 
 		System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-		System.out.println("[자료형별 리터럴 작성법]");
+		System.out.println("[자료형 별 리터럴 작성법]");
 		
 		// 논리형(1 byte)
 		boolean isTrue = true;
