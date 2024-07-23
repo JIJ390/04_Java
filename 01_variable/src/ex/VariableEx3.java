@@ -71,8 +71,8 @@ public class VariableEx3 {
 		
 		
 		System.out.println("[문자(char) <-> 유니코드(int)]");
-		System.out.println("A  의 번호  : " + (int)'A');		// 65
-		System.out.println("a  의 번호  : " + (int)'a');		// 97
+		System.out.println("A  의 번호 : " + (int)'A');		// 65
+		System.out.println("a  의 번호 : " + (int)'a');		// 97
 		System.out.println("정 의 번호 : " + (int)'정');	// 51221
 		System.out.println("인 의 번호 : " + (int)'인');	// 51064
 		System.out.println("재 의 번호 : " + (int)'재');	// 51116

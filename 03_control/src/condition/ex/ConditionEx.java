@@ -66,11 +66,11 @@ public class ConditionEx {
 		int age = sc.nextInt();		// 필드 sc 이용
 		String result;
 		
-		if (age <= 0 || age > 100)  result = "잘못 입력하셨습니다.";
-		else if (age <= 13) 		result = "어린이";
+		if (age <= 0 || age > 100) result = "잘못 입력하셨습니다.";
+		else if (age <= 13) 			result = "어린이";
 		else if (age <= 16)			result = "청소년(중)";
-		else if (age <= 19) 		result = "청소년(고)";
-		else 						result = "성인";
+		else if (age <= 19) 			result = "청소년(고)";
+		else 								result = "성인";
 
 //	삼항연산자 사용시
 //	else if (age <= 19) result = "청소년" + ((age <= 16) ? "(중)" : "(고)"); 
@@ -128,7 +128,7 @@ public class ConditionEx {
 		// 3) case 값, 값, 값
 		case 9, 10, 11 : result = "가을"; break;
 		
-		case 12, 1, 2 : result = "겨울"; break;
+		case 12, 1, 2  : result = "겨울"; break;
 		
 		default : result = "잘못 입력하셨습니다.";
 		

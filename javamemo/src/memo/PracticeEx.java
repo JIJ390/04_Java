@@ -115,12 +115,20 @@ public class PracticeEx {
 		System.out.print("f 입력");
 		String f = sc.nextLine();
 		
+		System.out.print("g 입력");
+		String g = sc.next();	
+		
+		System.out.print("h 입력");
+		String h = sc.nextLine();
+		
 		System.out.println(a);
 		System.out.println(b);
 		System.out.println(c);
 		System.out.println(d);
 		System.out.println(e);
 		System.out.println(f);
+		System.out.println(g);
+		System.out.println(h);
 	}
 	
 	public int method6_1() {
@@ -128,8 +136,41 @@ public class PracticeEx {
 		Scanner sc = new Scanner(System.in);
 		return sc.nextInt();
 	}
-
 	
+	public void method7() {
+		double a = 3.15;
+		float b = (float)a;
+		
+		int c = 10;
+		long d = 100000000000000l;
+		
+		float e = 3.14f;
+		
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(d);
+		System.out.println(e);
+	}
+	
+   public int method8(String myString, String pat) {
+   	
+//    int answer = 0;
+//      
+//    myString = myString.replace("A", "C");
+//    myString = myString.replace("B", "A");
+//    myString = myString.replace("C", "B");
+//      
+//    if (myString.contains(pat)) return 1;
+//      
+//    return answer;
+      
+      myString = myString.replace("A", "C").replace("B", "A").replace("C", "B");
+      return myString.contains(pat) ? 1 : 0;
+      
+      // 코드 길이를 줄이는 팁) 삼항 연산자 적극 사용
+      // 같은 변수를 지니고 매개변수만 다른 메소드를 사용할 때는 이어 붙이면 한 줄로 쓰기 쉬움
+  }
 	
 //	public static void main(String[] args) {
 //		args = new String[2];

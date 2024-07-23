@@ -13,7 +13,9 @@ public class PracticeRun {
 //		pe.method3();
 //		pe.method4();
 //		pe.method5();
-		pe.method6();
+//		pe.method6();
+//		pe.method7();
+		pe.method8("ABBAA","AABB");
 		
 		
 		

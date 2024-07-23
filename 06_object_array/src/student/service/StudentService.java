@@ -124,29 +124,78 @@ public class StudentService {
 	}
 
 
-	public StudentDTO updateStudent(int index, String studentNumber, String name, char gender) {
-		
-		students[index].setStudentNumber(studentNumber);
-		students[index].setName(name);
-		students[index].setGender(gender);
-		
-		return students[index];
-	}
-
-
-	public String scoreStudent(int index) {
-		int sum = 0;
-		
-		sum += students[index].getHtml();
-		sum += students[index].getCss();
-		sum += students[index].getJava();
-		sum += students[index].getJs();
-		
-		String str = "합계 : " + sum + " 평균 : " + sum / 4;
-		
-		return str;
+	public int checkIndex(int index) {
+		if (index < 0 || index >= students.length) return 1;
+		if (students[index] == null) return 2;
+		return 3;
 	}
 	
+	/**
+	 * 전달받은 인덱스 번째 학생의 점수 수정
+	 * @param index
+	 * @param other
+	 */
+	public void updateScores(int index, StudentDTO other) {
+		
+		// 객체 배열 : 객체 참조형 변수를 묶음으로 다룸
+		StudentDTO s = students[index];
+		
+		s.setHtml(other.getHtml());
+		s.setCss(other.getCss());
+		s.setJs(other.getJs());
+		s.setJava(other.getJava());
+	}
+
+
+	/**
+	 * 평균 최대/최소 구하기
+	 * @return 
+		최고점 : 짱구(85.4)
+		최저점 : 맹구(61.5)
+	 */
+	public String selectMaxMin() {
+		
+		double[] avg = new double[students.length];
+		
+		for (int i = 0; i < students.length; i++) {
+			
+			if (students[i] == null) continue;
+			
+			StudentDTO s = students[i];
+			avg[i] = (s.getHtml() + s.getCss() + s.getJava() + s.getJs()) / 4.0;
+		}
+		
+		double maxAvg = avg[0];
+		double minAvg = avg[0];
+		
+		String maxName = students[0].getName();
+		String minName = students[0].getName();
+		
+		for (int i = 0; i < students.length; i++) {
+			
+			if (students[i] == null) continue;
+			
+			if (maxAvg < avg[i]) {
+				maxAvg  = avg[i];
+				maxName = students[i].getName();
+			}
+			if (minAvg > avg[i]) {
+				minAvg  = avg[i];
+				minName = students[i].getName();
+			}
+		}
+		
+		return String.format("최고점 : %s (%.1f) \n"
+								 + "최저점 : %s (%.1f) \n", 
+								 maxName, maxAvg, minName, minAvg);
+		
+	}
+
+
+
+
+
+
 		
 }
 
