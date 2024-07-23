@@ -155,33 +155,25 @@ public class StudentService {
 	 */
 	public String selectMaxMin() {
 		
-		double[] avg = new double[students.length];
+		double maxAvg = 0.0;
+		double minAvg = 100.0;
 		
-		for (int i = 0; i < students.length; i++) {
-			
-			if (students[i] == null) continue;
-			
-			StudentDTO s = students[i];
-			avg[i] = (s.getHtml() + s.getCss() + s.getJava() + s.getJs()) / 4.0;
-		}
+		String maxName = "";
+		String minName = "";
 		
-		double maxAvg = avg[0];
-		double minAvg = avg[0];
-		
-		String maxName = students[0].getName();
-		String minName = students[0].getName();
-		
-		for (int i = 0; i < students.length; i++) {
+		for (StudentDTO std : students) {
 			
-			if (students[i] == null) continue;
+			if (std == null) continue;
 			
-			if (maxAvg < avg[i]) {
-				maxAvg  = avg[i];
-				maxName = students[i].getName();
+			double avg = (std.getHtml() + std.getCss() + std.getJava() + std.getJs()) / 4.0;
+			
+			if (maxAvg <= avg) {
+				maxAvg  = avg;
+				maxName = std.getName();
 			}
-			if (minAvg > avg[i]) {
-				minAvg  = avg[i];
-				minName = students[i].getName();
+			if (minAvg >= avg) {
+				minAvg  = avg;
+				minName = std.getName();
 			}
 		}
 		
