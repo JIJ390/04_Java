@@ -33,7 +33,7 @@ package cls.pkg1;
 public class ClassTest1 {
 	
 	public void method() {
-		System.out.println("public 은 어디서드 접근 가능");
+		System.out.println("public 은 어디서든 접근 가능");
 	}
 }
 

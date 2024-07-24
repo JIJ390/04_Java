@@ -1,5 +1,6 @@
 package memo;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -171,6 +172,40 @@ public class PracticeEx {
       // 코드 길이를 줄이는 팁) 삼항 연산자 적극 사용
       // 같은 변수를 지니고 매개변수만 다른 메소드를 사용할 때는 이어 붙이면 한 줄로 쓰기 쉬움
   }
+   
+   public String[] method9(String my_string) {
+   	
+//   	String my_string = "I love you";
+//   	Scanner sc = new Scanner(my_string);
+//   	int count = 1;
+//   	
+//   	for (char c : my_string.toCharArray()) {
+//   		if (c == ' ') count++;
+//   	}
+//   	
+//    String[] answer = new String[count];
+// 
+//    for(int i = 0; i < answer.length; i++) {
+//      	answer[i] = sc.next();
+//      	System.out.println(answer[i]);
+//    }
+
+    String[] answer = my_string.split(" ");
+    return answer;
+    
+//  대부분의 문제는 메서드로 해결 가능    
+      
+  }
+   
+   public void method10() {
+
+   	
+		System.out.println("!@#$%^&*(\'" + '"' +"<>?:;");
+	}
+   
+   
+   
+
 	
 //	public static void main(String[] args) {
 //		args = new String[2];
