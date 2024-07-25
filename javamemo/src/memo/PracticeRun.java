@@ -17,7 +17,9 @@ public class PracticeRun {
 //		pe.method7();
 //		pe.method8("ABBAA","AABB");
 //		pe.method9("I love you");
-		pe.method10();
+//		pe.method10();
+		
+		System.out.println(pe.pow(3, 10));
 		
 		
 //		PracticeEx.main(arr);

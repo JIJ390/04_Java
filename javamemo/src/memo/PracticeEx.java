@@ -203,7 +203,10 @@ public class PracticeEx {
 		System.out.println("!@#$%^&*(\'" + '"' +"<>?:;");
 	}
    
-   
+	public int pow(int a, int x) {
+		int result = (int) Math.pow(a, x);
+		return result;
+	}
    
 
 	
