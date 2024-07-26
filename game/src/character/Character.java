@@ -6,6 +6,7 @@ public class Character {
 	private int def = 10;
 	private int hp = 20;
 	private int hpMax = 20;
+	private int act = 0;
 	
 	private int level = 1;
 	private int exp = 0;
@@ -15,12 +16,16 @@ public class Character {
 		
 	}
 	
-	public int Attack() {
-		return atk;
+	public int Damage(int dmg) {
+		hp -= dmg;
+		return dmg;
 	}
 	
 	public int Defense(int dmg) {
-		if (dmg >= def) return dmg - def;
+		if (dmg >= def) {
+			hp -= (dmg - def);
+			return dmg - def;
+		}
 		return 0;
 	}
 	
@@ -28,10 +33,14 @@ public class Character {
 		this.exp += exp;
 	}
 	
-	public void LevelCheck(int exp) {
+	public void LevelCheck() {
 
 		if (exp >= expMax) {
-			System.out.println("레벨이 1 상승했습니다.");
+			System.out.println("레벨이 1 상승했습니다!!");
+			System.out.println("공격력 10 증가");
+			System.out.println("방어력 10 증가");
+			System.out.println("최대 체력 10 증가");
+			System.out.println("체력이 회복되었습니다");
 			
 			level ++;
 			atk += 10;
@@ -66,6 +75,14 @@ public class Character {
 	public void setHp(int hp) {
 		this.hp = hp;
 	}
+	
+	public int getAct() {
+		return act;
+	}
+
+	public void setAct(int act) {
+		this.act = act;
+	}
 
 	public int getHpMax() {
 		return hpMax;
@@ -74,7 +91,7 @@ public class Character {
 	public void setHpMax(int hpMax) {
 		this.hpMax = hpMax;
 	}
-
+	
 	public int getLevel() {
 		return level;
 	}
@@ -98,6 +115,7 @@ public class Character {
 	public void setExpMax(int expMax) {
 		this.expMax = expMax;
 	}
+
 	
 	
 	

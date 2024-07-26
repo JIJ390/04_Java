@@ -2,21 +2,19 @@ package monster;
 
 public class Dragon extends Monster{
 
+	private String name = "드래곤";
+	
 	private int atk = 30;
 	private int def = 30;
 	private int hp = 50;
 	
 	private int dropExp = 20;
 	
-	@Override
-	public int Attack() {
-		return atk;
-	}
+	private int act;
 
-	@Override
-	public int Defense(int dmg) {
-		if (dmg >= def) return dmg - def;
-		return 0;
-	}
+	
+	
 
+	
+	
 }
