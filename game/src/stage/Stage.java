@@ -19,6 +19,7 @@ public class Stage {
 	public void fight(Character c1, Monster mob) {
 		
 		System.out.println("------------------");
+		System.out.println("[Battle log]");
 		
 		int dmg = 0;
 		

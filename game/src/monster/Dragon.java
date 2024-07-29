@@ -2,6 +2,7 @@ package monster;
 
 public class Dragon extends Monster{
 
+
 	private String name = "드래곤";
 	
 	private int atk = 30;
@@ -12,9 +13,4 @@ public class Dragon extends Monster{
 	
 	private int act;
 
-	
-	
-
-	
-	
 }

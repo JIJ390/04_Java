@@ -1,7 +1,9 @@
 package list.service;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 /* Collection Framework : Java 에서 제공하는 자료구조를 모아둔 것
  * (java.util 패키지에 존재)
@@ -110,7 +112,8 @@ public class ListService {
 		 */
 		
 //		String 으로 타입이 제한된 List 생성
-		List<String> menuList = new ArrayList<String>();
+//		List<String> menuList = new ArrayList<String>();
+		List<String> menuList = new LinkedList<String>();
 		
 //		add() 확인 : String 으로 제한돼서 다른 자료형 추가 X
 		menuList.add("냉면");
@@ -167,7 +170,65 @@ public class ListService {
 		System.out.println("\n" + menuList);
 		System.out.println(remove + " 제거됨");
 	}
+	
+	/**
+	 * 왜 컬렉션 참조 변수를 부모 타입으로 작성하는가?
+	 * 
+	 * -> 프로그래밍 과정에서 미쳐 생각치 못한 비효율적인 요소를 
+	 * 	  쉽게 개선하기 위해서
+	 * 
+	 * ex) ArrayList 로 만들었는데
+	 * 	   중간에 추가, 삭제가 빈번히 일어나는 경우
+	 * 	   -> LinkedList 가 훨씬 효율적
+	 * 
+	 *     LinkedList 만들었는데 
+	 *     검색이 빈번하게 일어나는 경우
+	 *     -> ArrayList가 훨씬 효율적
+	 */
+	public void test3() {
+		List<Integer> list = new ArrayList<Integer>();
+		
+		Random random = new Random();
+		
+//		System.currentTimeMillis();
+//		: 1970 년 1월 1일 09:00:00.00.00 기준으로
+//		  현재 시간까지 지난 시간을 ms 단위로 반환(long)
+//		System.out.println(System.currentTimeMillis());
+//		System.out.println(System.nanoTime());
+		
+		long start = System.currentTimeMillis();
+		
+		for(int i = 0; i < 1000000; i++) {
+//			0 ~ 99999 사이 난수
+			list.add(random.nextInt(100000));
+		}
+		
+		long end = System.currentTimeMillis();
+//		System.out.println(System.currentTimeMillis());
+//		System.out.println(System.nanoTime());
+		
+		System.out.println("생성 완료 - 걸린 시간 : " 
+						+ (end - start) + " ms");
+
+		
+//		추가 시간 확인
+		start = System.nanoTime();
+		list.add(500000, 123456789);		// 중간에 데이터 삽입
+		end = System.nanoTime();
+		
+		System.out.println("추가 시간 : " + (end - start) + " ns");
+
+		
+//		검색 시간 확인
+		
+		start = System.currentTimeMillis();
+		System.out.println(list.indexOf(123456789));
+		end = System.currentTimeMillis();
+		
+		System.out.println("검색 시간 : " + (end - start) + " ms");
+	}
 }
+
 
 
 

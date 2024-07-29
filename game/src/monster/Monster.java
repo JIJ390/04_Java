@@ -1,6 +1,6 @@
 package monster;
 
-public abstract class Monster {
+public class Monster {
 	
 	private String name;
 	
@@ -13,6 +13,25 @@ public abstract class Monster {
 	
 	private int dropExp;
 	
+	
+	public Monster() {
+		super();
+	}
+
+	public Monster(String name, int atk, int def, int hp, int hpMax, int act, int dropExp) {
+		super();
+		
+		this.name = name;
+		this.atk = atk;
+		this.def = def;
+		this.hp = hp;
+		this.hpMax = hpMax;
+		this.act = act;
+		this.dropExp = dropExp;
+	}
+
+
+
 	// 메서드
 	public int Damage(int dmg) {
 		hp -= dmg;
@@ -24,9 +43,6 @@ public abstract class Monster {
 		return 0;
 	}
 	
-	
-	
-	// 게터 세터
 	public String getName() {
 		return name;
 	}
@@ -82,13 +98,6 @@ public abstract class Monster {
 	public void setDropExp(int dropExp) {
 		this.dropExp = dropExp;
 	}
-	
-
-	
-	
-	
-//	메서드
-	
 	
 
 }
