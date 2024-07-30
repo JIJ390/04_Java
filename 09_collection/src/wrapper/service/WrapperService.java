@@ -177,7 +177,7 @@ public class WrapperService {
 //		방법 2) Wrapper Class 의 valueOf() /toString() 이용하기
 //		num5 를 Integer 객체로 바꾼 후 toString
 		String change2 = Integer.valueOf(num5).toString();
-		String change3 =Integer.toString(num5);
+		String change3 = Integer.toString(num5);
 		
 		System.out.println(change1);
 		System.out.println(change1 instanceof String);
