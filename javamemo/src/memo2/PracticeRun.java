@@ -5,7 +5,9 @@ public class PracticeRun {
 		
 		PracticeService ps = new PracticeService();
 		
-		ps.test1();
+//		ps.test1();
 //		ps.test3();
+		
+		ps.objCopy();
 	}
 }
