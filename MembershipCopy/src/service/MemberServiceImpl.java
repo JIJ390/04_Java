@@ -44,6 +44,9 @@ public class MemberServiceImpl implements MemberService{
 			price += member.getAmount();
 			member.setAmount(price);
 			
+			if      (member.getAmount() > 1000000) member.setGrade(Member.DIAMOND);
+			else if (member.getAmount() > 100000)  member.setGrade(Member.GOLD);
+			
 			dao.saveFile();
 			
 			return true;
@@ -51,5 +54,43 @@ public class MemberServiceImpl implements MemberService{
 		
 		return false;
 
+	}
+	
+	@Override
+	public boolean reInform(String reName, String rePhone, String name, String phone) throws IOException {
+		
+		List<Member> memberList = dao.getMemberList();
+		
+		for (Member member : memberList) {
+			if (member.getName().equals(name) && member.getPhone().equals(phone)) {
+				
+				member.setName(reName);
+				member.setPhone(rePhone);
+			
+				dao.saveFile();
+				
+				return true;
+			}
+		}
+			
+		return false;
+	}
+	
+	@Override
+	public boolean removeMember(String name, String phone, char choice) throws IOException {
+		List<Member> memberList = dao.getMemberList();
+		
+		for (Member member : memberList) {
+			if (member.getName().equals(name) && member.getPhone().equals(phone)) {
+				
+				memberList.remove(memberList.indexOf(member));
+				
+				dao.saveFile();
+				
+				return true;
+			}
+		}
+		
+		return false;
 	}
 }

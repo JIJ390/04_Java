@@ -16,9 +16,9 @@ import lombok.ToString;
 @ToString
 public class Member implements Serializable{
 
-	public static final int COMMON = 0;
-	public static final int GOLD = 0;
-	public static final int DIAMOND = 0;
+	public static final int COMMON  = 0;
+	public static final int GOLD    = 1;
+	public static final int DIAMOND = 2;
 	
 	private String name;
 	private String phone;

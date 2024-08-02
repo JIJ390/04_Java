@@ -158,10 +158,12 @@ public class CharService {
 			long start = System.nanoTime();
 			
 			while ((line = br.readLine()) != null) {
-//				sb.append(line + "\n");	// 3171799 ns  20 배 가량 느림!!
+//				sb.append(line + "\n");	    // 3171799 ns  20 배 가량 느림!!
 				sb.append(line);			// 153400  ns
 				sb.append("\n");
 			}
+
+//			sb.append(line + "b");
 			
 			long end = System.nanoTime();
 			
