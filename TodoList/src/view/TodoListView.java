@@ -121,7 +121,6 @@ public class TodoListView {
 		
 		String detailView = service.detailView(index);
 		
-		System.out.println("--------------------------------------------");
 		System.out.println(detailView);
 		
 	}

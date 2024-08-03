@@ -43,7 +43,7 @@ public class TodoListServiceImpl implements TodoListService{
 		
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append("-------------------------------------------\n");
+		sb.append("--------------------------------------------\n");
 		sb.append("제목 : " + todo.getTitle() + "\n");
 		sb.append("등록일 : " + formattedDateTime + "\n");
 		sb.append("완료 여부 : " + complete + "\n");
