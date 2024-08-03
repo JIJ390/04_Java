@@ -20,8 +20,8 @@ public class Todo implements Serializable{
 
 	private String title;					// 할일 제목
 	private String detail;					// 상세 내용
-	private boolean complete;				// 할 일 제목
-	private LocalDateTime regDate;	// 등록 날짜
+	private boolean complete;				// 할 일 확인
+	private LocalDateTime regDate;			// 등록 날짜
 	
 	// java.time 패키지
 	// LocalDateTime : 날짜, 시간을 나타내는 클래스

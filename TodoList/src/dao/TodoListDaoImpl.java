@@ -3,6 +3,7 @@ package dao;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -42,6 +43,15 @@ public class TodoListDaoImpl implements TodoListDao{
 	@Override
 	public List<Todo> getTodoList() {
 		return todoList;
+	}
+	
+	@Override
+	public void saveFile() throws IOException {
+		try {
+			oos = new ObjectOutputStream(new FileOutputStream(FILE_PATH));
+			oos.writeObject(todoList);
+		} finally {
+			if (oos != null) oos.close();		}
 	}
 
 }
