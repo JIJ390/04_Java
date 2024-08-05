@@ -28,8 +28,8 @@ public class Todo implements Serializable{
 	// LocalDateTime.now() : 현재 시간 반환
 		
 	// 날짜와 시간을 원하는 포맷으로 출력하기
-	//  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	//  String formattedDateTime = currentDateTime.format(formatter);
+	// DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	// String formattedDateTime = currentDateTime.format(formatter);
 	
 	
 }

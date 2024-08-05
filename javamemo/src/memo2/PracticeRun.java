@@ -8,6 +8,9 @@ public class PracticeRun {
 //		ps.test1();
 //		ps.test3();
 		
-		ps.objCopy();
+//		ps.objCopy();
+		
+//		ps.test5();
+		ps.test6();
 	}
 }

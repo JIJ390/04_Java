@@ -1,23 +1,24 @@
 package service;
 
 import java.io.IOException;
-import java.util.List;
-
-import dto.Todo;
+import java.time.LocalDateTime;
 
 public interface TodoListService {
+	
+	String formatDate(LocalDateTime regDate);
 
-	int addTodo(String title, String sb) throws IOException;
-
-	List<Todo> getTodoList();
+	String fullView();
 
 	String detailView(int index);
+	
+	int addTodo(String title, String detail) throws IOException;
 
 	void completeTodo(int index) throws IOException;
 
-	void updateTodo(String title, String sb, int index) throws IOException;
+	void updateTodo(String title, String detail, int index) throws IOException;
 
-	void deleteTodo(int index);
+	void deleteTodo(int index) throws IOException;
+
 
 
 }

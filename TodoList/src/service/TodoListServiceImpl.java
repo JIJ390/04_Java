@@ -22,33 +22,54 @@ public class TodoListServiceImpl implements TodoListService{
 	}
 	
 	@Override
-	public List<Todo> getTodoList() {
-		return dao.getTodoList();
+	public String formatDate(LocalDateTime regDate) {
+		return regDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+	}
+	
+	@Override
+	public String fullView() {
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("\n===============[1. Todo List Full View]=============\n");
+		
+		List<Todo> todoList = dao.getTodoList();
+		
+		int countComplete = 0;
+		int allTodo       = todoList.size();
+		
+		for (Todo todo : todoList) if (todo.isComplete()) countComplete++;
+		
+		sb.append(String.format("[ 완료된 Todo 개수 / 전체 Todo 수 : %d / %d ]\n", countComplete, allTodo));
+		
+		sb.append("--------------------------------------------------------------------\n");
+		sb.append(String.format("%3s %15s %15s %10s \n", "인덱스", "등록일", "완료여부", "할 일 제목"));
+		sb.append("--------------------------------------------------------------------\n");
+		
+		for (Todo todo : todoList) {
+
+			sb.append(String.format("[%3s] %25s     (%c)       %-11s \n", 
+							todoList.indexOf(todo), formatDate(todo.getRegDate()),
+							todo.isComplete() ? 'O' : 'X', todo.getTitle()));
+		}
+
+		return sb.toString();
 	}
 	
 	@Override
 	public String detailView(int index) {
 		
-		List<Todo> todoList = dao.getTodoList();
-		
-		Todo todo = todoList.get(index);
-		
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-		String formattedDateTime = todo.getRegDate().format(formatter);
-		
-		char complete;
-		
-		if (todo.isComplete()) complete = 'O';
-		else                   complete = 'X';
+		Todo todo = dao.getTodoList().get(index);
 		
 		StringBuilder sb = new StringBuilder();
-		
-		sb.append("--------------------------------------------\n");
-		sb.append("제목 : " + todo.getTitle() + "\n");
-		sb.append("등록일 : " + formattedDateTime + "\n");
-		sb.append("완료 여부 : " + complete + "\n");
-		sb.append("\n");
-		sb.append("[세부 내용]\n");
+	
+		sb.append("--------------------------------------------\n");			
+		sb.append("제목 : ");
+		sb.append(todo.getTitle());
+		sb.append("\n등록일 : ");
+		sb.append(formatDate(todo.getRegDate()));
+		sb.append("\n완료 여부 : ");
+		sb.append(todo.isComplete() ? 'O' : 'X');
+		sb.append("\n\n[세부 내용]\n");
 		sb.append("--------------------------------------------\n");
 		sb.append(todo.getDetail());
 		
@@ -56,12 +77,11 @@ public class TodoListServiceImpl implements TodoListService{
 	}
 
 	@Override
-	public int addTodo(String title, String sb) throws IOException {
+	public int addTodo(String title, String detail) throws IOException {
 		
 		List<Todo> todoList = dao.getTodoList();
-		LocalDateTime regDate = LocalDateTime.now();
 		
-		Todo todo = new Todo(title, sb, false, regDate);
+		Todo todo = new Todo(title, detail, false, LocalDateTime.now());
 		
 		todoList.add(todo);
 		
@@ -72,33 +92,30 @@ public class TodoListServiceImpl implements TodoListService{
 	
 	@Override
 	public void completeTodo(int index) throws IOException {
-		List<Todo> todoList = dao.getTodoList();
 		
-		Todo todo = todoList.get(index);
+		Todo todo = dao.getTodoList().get(index);
 		
-		boolean before = todo.isComplete();
-		
-		if (before) todo.setComplete(false);
-		else        todo.setComplete(true);
+		todo.setComplete(!todo.isComplete());
 		
 		dao.saveFile();
 	}
 	
 	@Override
-	public void updateTodo(String title, String sb, int index) throws IOException {
+	public void updateTodo(String title, String detail, int index) throws IOException {
 		
 		Todo todo = dao.getTodoList().get(index);
 		
 		todo.setTitle(title);
-		todo.setDetail(sb);
+		todo.setDetail(detail);
 		
 		dao.saveFile();
 		
 	}
 
 	@Override
-	public void deleteTodo(int index) {
+	public void deleteTodo(int index) throws IOException {
 		dao.getTodoList().remove(index);
+		dao.saveFile();
 	}
 	
 }
