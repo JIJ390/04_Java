@@ -20,6 +20,10 @@ public class JavaTest {
 		 * 궁금한 것을 클릭 -> shift + f2
 		 */
 		
+		String str = "아구몬#";
+		
+		System.out.println(str);
+		
 	}
 	
 }
